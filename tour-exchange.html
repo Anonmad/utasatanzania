@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utasatanzania</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Reset */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif; line-height:1.6; background:#f9f9f9; color:#333;}
+a {text-decoration:none;}
+
+/* Navbar */
+header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 40px; background:#222; color:white; position:relative;
+}
+.logo img {height:120px; width:auto;}
+nav ul {list-style:none; display:flex; gap:0px;}
+nav ul li {position:relative;}
+nav ul li a {color:white; padding:8px 12px; display:block;}
+nav ul li a:hover {background:#5ebd3e; border-radius:5px;}
+/* Submenu */
+nav ul li ul.submenu {
+  display:none; position:absolute; top:100%; left:0; background:#333; min-width:150px;
+}
+nav ul li:hover ul.submenu {display:block;}
+nav ul li ul.submenu li a {padding:10px;}
+
+/* Mobile Menu */
+.menu-toggle {display:none; font-size:28px; cursor:pointer;}
+@media(max-width:768px){
+  nav {display:none; position:absolute; top:167px; right:0; background:#222; width:606px;}
+  nav ul {flex-direction:column;text-align: center;}
+  .menu-toggle {display:block; color:white;}
+  nav.active {display:block;z-index: 10;}
+}
+
+/* Hero */
+.hero {position:relative; height:100vh; overflow:hidden;}
+.hero-slider {height:100%; width:100%; position:relative;}
+.slide {
+  position:absolute; inset:0; background-size:cover; background-position:center;
+  opacity:0; transition:opacity 1s ease-in-out;
+}
+/* Overlay ya kivuli upande wa kushoto */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin-left: 11px;
+  top: 38%;
+}
+.slide.active {opacity:1;}
+.hero-text {
+  position:absolute; top:50%; left:35%; transform:translate(-50%,-50%);
+  text-align:left; color:white; z-index:2;
+}
+.hero-text h1 {font-family:'Playfair Display',serif; font-size:69px;}
+
+@keyframes lineAnim {from{width:60px;} to{width:150px;}}
+
+/* ===== Animation ===== */
+.hero h1, 
+.hero p, 
+.hero .underline {
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: slideIn 1s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* About Section */
+.about {
+  padding: 80px 20px;
+  background: white;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 350px; /* Upana wa box la picha */
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/4; /* Uwiano wa portrait (urefu zaidi kuliko upana) */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+.about-text {
+  flex: 1;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 32px;
+  font-family: 'Playfair Display', serif;
+}
+
+.line {
+  width: 80px;
+  height: 4px;
+  background: #5ebd3e;
+  margin: 10px 0 20px;
+  border-radius: 2px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  position: relative;
+  font-style: italic; /* Optional ili ionekane kama nukuu */
+}
+
+.about-text p::before {
+  content: "“"; /* Fungua semi */
+  font-size: 3rem;
+  color: #5ebd3e;
+  position: absolute;
+  left: -20px;
+  top: -10px;
+}
+
+.about-text p::after {
+  content: "”"; /* Funga semi */
+  font-size: 3rem;
+  color: #5ebd3e;
+  position: absolute;
+  right: -20px;
+  bottom: -10px;
+}
+
+
+.read-more-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  background: #5ebd3e;
+  color: white;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.read-more-btn:hover {
+  background: #2c19b9;
+}
+
+/* Responsive kwa simu */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .line {
+    margin: 10px auto 20px;
+  }
+}
+
+/* ===== FOOTER STYLING ===== */
+.footer {
+  background: #0a0a0a;
+  color: #f1f1f1;
+  padding: 60px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+        /* Footer */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.footer-col h4::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #ff4757;
+  position: absolute;
+  bottom: -6px;
+    display: block;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 10px 0;
+}
+
+.footer-col ul li a {
+  color: bl;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.footer-logo {
+  max-width: 120px;
+  margin-bottom: 15px;
+    display: block;
+    margin: auto;
+}
+
+.footer p {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 18px;
+  color: #bbb;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #ff4757;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 40px;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #777;
+}
+
+.footer-bottom a {
+  color: #ff4757;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+@media(max-width:768px){.sub-hero h1{font-size:32px;}}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="img/utasalogo.png" alt="Utasa Logo">
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="our-story.html">Programs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80');"></div>
+      <div class="slide" style="background-image: url('img/tatu.jpg');"></div>
+      <div class="slide" style="background-image: url('img/mbili.jpg');"></div>
+    </div>
+    <div class="hero-text">
+      <h1>Tours & Exchange</h1>
+    </div>
+  </section>
+
+<!-- About Section -->
+<section class="about">
+  <div class="about-container">
+    <!-- Picha upande wa kushoto -->
+    <div class="about-image">
+      <img src="img/tatu.jpg" alt="about.html">
+    </div>
+
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>About the Program</h2>
+      <div class="line"></div>
+      <p>
+       Travel With Us is a UTASATANZANIA initiative that allows children and youth players to experience football beyond their local communities. The program gives players the chance to travel and compete in tournaments across Tanzania, Africa, and beyond.
+
+The program is open to:
+- Children (7–13 years): Eligible for in-country tournaments only.
+- Youth (13–20 years): Eligible for both in-country and international tournaments.
+
+This is a paid program that helps players:
+• Gain exposure to different levels of competition.
+• Build cultural awareness and discipline.
+• Showcase their talent on international stages.
+• Access scouting and professional development opportunities.
+      </p>
+    </div>
+  </div>
+  
+    <div class="about-container">
+    <!-- Picha upande wa kushoto -->
+    <div class="about-image">
+      <img src="img/tatu.jpg" alt="about.html">
+    </div>
+
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>Eligibility Requirements</h2>
+      <div class="line"></div>
+      <p>
+       General Requirements (All Players 7–20)
+1. Age Requirement:
+   - 7–13 years → In-country tournaments only.
+   - 13–20 years → In-country and international tournaments.
+2. Player Status: Open to both UTASATANZANIA players and external applicants.
+3. Documents Required:
+   - Valid birth certificate or passport.
+   - Recent passport-size photos.
+   - Parental/guardian consent (mandatory if under 18).
+4. Fitness & Health:
+   - Must undergo a medical check-up.
+   - Provide a health clearance form.
+5. Code of Conduct:
+   - Commitment to discipline, teamwork, and respect.
+6. Financial Commitment:
+   - Program is fully self-funded by parents/guardians.
+   - Installment payment options may be available.
+      </p>
+    </div>
+  </div>
+  
+    <div class="about-container">
+    <!-- Picha upande wa kushoto -->
+    <div class="about-image">
+      <img src="img/tatu.jpg" alt="about.html">
+    </div>
+
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>Program Directory</h2>
+      <div class="line"></div>
+      <p>
+       1. In-Country Tournaments (Ages 7–20)
+- Participation in national youth tournaments across Tanzania.
+- Categories: U9, U11, U13, U15, U17, U20.
+- Examples: Chipukizi Cup, United Talents Cup, SabaSaba Cup.
+2. African Tournaments (Ages 13–20)
+- Regional and continental tournaments across East Africa and Africa.
+- Exposure to African football culture and competition.
+- Examples: East African Youth Cup, CECAFA Youth Tournaments.
+3. International Tournaments (Ages 13–20)
+- Opportunities to compete outside Africa in world youth tournaments.
+- Examples: Norway Cup (Norway), Gothia Cup (Sweden), Dana Cup (Denmark), Dubai Youth Cup (UAE).
+4. Cultural Exchange & Learning
+- Beyond football: travel, new environments, cultural awareness, and leadership development.
+5. Player Development & Scouting
+- Exposure to international scouts and academies.
+- Opportunities for scholarships and professional pathways.
+6. Support & Guidance
+- UTASATANZANIA staff accompany players for safety and guidance.
+- Pre-travel orientation sessions on discipline, cultural behavior, and travel etiquette.
+      </p>
+    </div>
+  </div>
+  
+    <div class="about-container">
+    <!-- Picha upande wa kushoto -->
+    <div class="about-image">
+      <img src="img/tatu.jpg" alt="about.html">
+    </div>
+
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>Next Steps for Interested Players</h2>
+      <div class="line"></div>
+      <p>
+       1. Fill out the Travel With Us Application Form (available online or at UTASATANZANIA offices).
+2. Submit required documents.
+3. Undergo assessment and health check.
+4. Await selection and confirmation.
+5. Complete fee payment process.
+6. Begin pre-travel training and orientation.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Brand / Logo -->
+            <div class="footer-col brand">
+                <img src="img/utasalogo.png" alt="index.html" class="footer-logo">
+                <p><i>Creating Equal Opportunities, Changing Lives Through Sports.</i></p>
+            </div>
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="#">Matches</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </div>
+            <!-- Resources -->
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="utasatanzania@gmail.com">Help Center</a></li>
+                </ul>
+            </div>
+            <!-- Social Media -->
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p><b>&copy; 2025 Utasatanzania.</b> <i>All Rights Reserved.</i></p>
+            <p>Designed by <a href="https://github.com/Anonmad/Anonmad.git">Anonmad_Tech.</a></p>
+        </div>
+    </footer>
+    <!-- FontAwesome CDN -->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<script>
+  // Navbar toggle
+const menuToggle = document.getElementById("menu-toggle");
+const navbar = document.getElementById("navbar");
+menuToggle.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+  menuToggle.innerHTML = navbar.classList.contains("active")
+    ? '<i class="fas fa-times"></i>'
+    : '<i class="fas fa-bars"></i>';
+});
+
+// Hero slider (auto change every 5s)
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+function showSlide() {
+  slides.forEach((s, i) => s.classList.remove("active"));
+  slides[index].classList.add("active");
+  index = (index + 1) % slides.length;
+}
+setInterval(showSlide, 5000);
+
+// Modals (About Page)
+const modalBtns = document.querySelectorAll("button[data-modal]");
+const modals = document.querySelectorAll(".modal");
+const closeBtns = document.querySelectorAll(".close-btn");
+
+modalBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.getElementById(btn.dataset.modal).style.display = "flex";
+  });
+});
+
+closeBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.parentElement.parentElement.style.display = "none";
+  });
+});
+
+window.addEventListener("click", e => {
+  modals.forEach(modal => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+});
+
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

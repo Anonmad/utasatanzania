@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Utasatanzania</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Reset */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif; line-height:1.6; background:#f9f9f9; color:#333;}
+a {text-decoration:none;}
+
+/* Navbar */
+header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 40px; background:#222; color:white; position:relative;
+}
+.logo img {height:120px; width:auto;}
+nav ul {list-style:none; display:flex; gap:0px;}
+nav ul li {position:relative;}
+nav ul li a {color:white; padding:8px 12px; display:block;}
+nav ul li a:hover {background:#5ebd3e; border-radius:5px;}
+/* Submenu */
+nav ul li ul.submenu {
+  display:none; position:absolute; top:100%; left:0; background:#333; min-width:150px;
+}
+nav ul li:hover ul.submenu {display:block;}
+nav ul li ul.submenu li a {padding:10px;}
+
+/* Mobile Menu */
+.menu-toggle {display:none; font-size:28px; cursor:pointer;}
+@media(max-width:768px){
+  nav {display:none; position:absolute; top:167px; right:0; background:#222; width:606px;}
+  nav ul {flex-direction:column;text-align: center;}
+  .menu-toggle {display:block; color:white;}
+  nav.active {display:block;z-index: 10;}
+}
+
+/* Hero */
+.hero {position:relative; height:100vh; overflow:hidden;}
+.hero-slider {height:100%; width:100%; position:relative;}
+.slide {
+  position:absolute; inset:0; background-size:cover; background-position:center;
+  opacity:0; transition:opacity 1s ease-in-out;
+}
+/* Overlay ya kivuli upande wa kushoto */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin-left: 11px;
+  top: 38%;
+}
+.slide.active {opacity:1;}
+.hero-text {
+  position:absolute; top:50%; left:35%; transform:translate(-50%,-50%);
+  text-align:left; color:white; z-index:2;
+}
+.hero-text h1 {font-family:'Playfair Display',serif; font-size:55px;}
+
+@keyframes lineAnim {from{width:60px;} to{width:150px;}}
+
+/* ===== Animation ===== */
+.hero h1, 
+.hero p, 
+.hero .underline {
+  transform: translateX(-100%);
+  opacity: 0;
+  animation: slideIn 1s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* About Section */
+.about {
+  padding: 80px 20px;
+  background: white;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.about-image {
+  flex: 1;
+  max-width: 350px; /* Upana wa box la picha */
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3/4; /* Uwiano wa portrait (urefu zaidi kuliko upana) */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+
+.about-text {
+  flex: 1;
+  text-align: left;
+}
+
+.about-text h2 {
+  font-size: 32px;
+  font-family: 'Playfair Display', serif;
+}
+
+.line {
+  width: 80px;
+  height: 4px;
+  background: #5ebd3e;
+  margin: 10px 0 20px;
+  border-radius: 2px;
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #555;
+  position: relative;
+}
+
+.about-text p::before {
+  content: "“"; /* Fungua semi */
+  font-size: 3rem;
+  color: #5ebd3e;
+  position: absolute;
+  left: -20px;
+  top: -10px;
+}
+
+.about-text p::after {
+  content: "”"; /* Funga semi */
+  font-size: 3rem;
+  color: #5ebd3e;
+  position: absolute;
+  right: -20px;
+  bottom: -10px;
+}
+
+/* Responsive kwa simu */
+@media (max-width: 768px) {
+  .about-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .line {
+    margin: 10px auto 20px;
+  }
+}
+
+/* ===== FOOTER STYLING ===== */
+.footer {
+  background: #0a0a0a;
+  color: #f1f1f1;
+  padding: 60px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+        /* Footer */
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+.footer-col h4::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #ff4757;
+  position: absolute;
+  bottom: -6px;
+    display: block;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 10px 0;
+}
+
+.footer-col ul li a {
+  color: bl;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.footer-logo {
+  max-width: 120px;
+  margin-bottom: 15px;
+    display: block;
+    margin: auto;
+}
+
+.footer p {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 18px;
+  color: #bbb;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #ff4757;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 40px;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #777;
+}
+
+.footer-bottom a {
+  color: #ff4757;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+@media(max-width:768px){.sub-hero h1{font-size:32px;}}
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="img/utasalogo.png" alt="Utasa Logo">
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="our-story.html">Programs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-slider">
+      <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80');"></div>
+      <div class="slide" style="background-image: url('img/tatu.jpg');"></div>
+      <div class="slide" style="background-image: url('img/mbili.jpg');"></div>
+    </div>
+    <div class="hero-text">
+      <h1>Make a Dream Fund (MADF)</h1>
+    </div>
+  </section>
+
+<!-- About Section -->
+<section class="about">
+  <div class="about-container">
+    <!-- Picha upande wa kushoto -->
+    <div class="about-image">
+      <img src="img/tatu.jpg" alt="about.html">
+    </div>
+
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>About MADF</h2>
+      <div class="line"></div>
+      <p>
+        The Make a Dream Fund (MADF) is an initiative by UTASATANZANIA to support talented youth who face
+        financial or resource constraints. MADF provides scholarships, mentorship, and resources to help young
+        athletes and students participate in sports programs, camps, competitions, and educational activities.
+      </p>
+    </div>
+  </div>
+  <!-- About Section -->
+<section class="about">
+  <div class="about-container">
+    <!-- Picha upande wa kushoto -->
+    <div class="about-image">
+      <img src="img/tatu.jpg" alt="about.html">
+    </div>
+
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>About MADF</h2>
+      <div class="line"></div>
+      <p>
+        The Make a Dream Fund (MADF) is an initiative by UTASATANZANIA to support talented youth who face
+        financial or resource constraints. MADF provides scholarships, mentorship, and resources to help young
+        athletes and students participate in sports programs, camps, competitions, and educational activities.
+      </p>
+    </div>
+  </div>
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>Vision</h2>
+      <div class="line"></div>
+      <p>
+        Empowering youth to achieve their dreams regardless of financial limitations.
+      </p>
+    </div>
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>Mission</h2>
+      <div class="line"></div>
+      <p>
+        Remove barriers and provide equal opportunities for talent development and success
+      </p>
+    </div>
+  <!-- About Section -->
+<section class="about">
+  <div class="about-container">
+    <!-- Picha upande wa kushoto -->
+    <div class="about-image">
+      <img src="img/tatu.jpg" alt="about.html">
+    </div>
+
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>Read-Only Information Section
+      </h2>
+      <div class="line"></div>
+      <p style="font-family:'Playfair Display',serif;">
+        This section is for viewing only. Applications are submitted exclusively via the MADT system for eligible
+applicants.<br><br>
+        What You Can View: - Scholarship application guidelines and instructions - Required documents - FAQs
+about eligibility, deadlines, and document submission<br><br>
+       How the Application Works:<br> 1. Review eligibility and required documents.<br> 2. Prepare all necessary forms
+and information.<br> 3. Submit your application via your MADT account if your program allows MADF
+applications.<br> 4. Track your application status and receive notifications via MADT.
+      </p>
+      <div class="about-text">
+          <h2>Note</h2>
+          <div class="line"></div>
+          <p style="color: orange;">Not all MADT Rising Stars players apply through the same process. Check your
+program eligibility before applying.</p>
+      </div>
+    </div>
+  </div>
+  <!-- About Section -->
+<section class="about">
+  <div class="about-container">
+    <!-- Picha upande wa kushoto -->
+    <div class="about-image">
+      <img src="img/tatu.jpg" alt="about.html">
+    </div>
+
+    <!-- Maandishi upande wa kulia -->
+    <div class="about-text">
+      <h2>MADF Application Requirements</h2>
+      <div class="line"></div>
+        <h3>1. General Eligibility</h3>
+      <p>
+        &#9679; Registered in the MADT system.<br>
+        &#9679; Demonstrate exceptional talent or potential in sports, education, or personal development.<br>
+        &#9679; Face financial or resource constraints limiting program participation.<br><br>
+      </p>
+        <h3>2. Age & Category Requirements</h3>
+      <p>
+        &#9679; Meet the age categories specified for the scholarship or program.<br>
+        &#9679; Provide a valid birth certificate or official document for age verification.<br>
+        &#9679; Applicants under 16 years old must have a legal guardian available to provide consent and support.<br>
+      </p>
+      <h3>3. Required Documents</h3>
+      <p>
+        &#9679; Completed MADF Application Form (via MADT)<br>
+        &#9679; Code of Conduct Form<br>
+        &#9679; Camp Rules & Regulations Form<br>
+        &#9679; Safeguarding Form<br>
+        &#9679; Health Check-Up Form<br>
+        &#9679; Consent Form from Legal Guardian (for applicants under 16)<br>
+        &#9679; ID Number Submission – All players under UTASATANZANIA hubs must submit their ID numbers via
+coordinators upon registration.<br><br>
+        <i>All documents must be signed by the applicant and, if applicable, by a parent or guardian.</i>
+      </p>
+      <h3>4. Application Process & Period</h3>
+      <p>
+        &#9679; Applications must be submitted through MADT if eligible.<br>
+        &#9679; Application Period: 11th December 2025 – 30th January 2026.<br>
+        &#9679; Notifications and updates will be sent via MADT account email.<br>
+      </p>
+      <h3>5. Additional Notes</h3>
+      <p>
+        &#9679; Not all applicants may receive funding; selection is based on talent, need, and program availability.<br>
+        &#9679; Applicants must have an active MADT account.<br>
+        &#9679; Commitment to attend programs, training, or competitions is required if selected.<br>
+        &#9679; Compliance with all UTASATANZANIA policies, including safeguarding and health regulations, is
+mandatory.<br>
+        &#9679; Incomplete applications or missing documents may result in disqualification.
+      </p>
+      <h3>Call to Action
+Check your eligibility and log in to your MADT account to apply for the Make a Dream Fund if your program
+  allows.
+      </h3>
+    </div>
+  </div>
+</section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Brand / Logo -->
+            <div class="footer-col brand">
+                <img src="img/utasalogo.png" alt="index.html" class="footer-logo">
+                <p><i>Creating Equal Opportunities, Changing Lives Through Sports.</i></p>
+            </div>
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="#">Matches</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </div>
+            <!-- Resources -->
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="utasatanzania@gmail.com">Help Center</a></li>
+                </ul>
+            </div>
+            <!-- Social Media -->
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p><b>&copy; 2025 Utasatanzania.</b> <i>All Rights Reserved.</i></p>
+            <p>Designed by <a href="https://github.com/Anonmad/Anonmad.git">Anonmad_Tech.</a></p>
+        </div>
+    </footer>
+    <!-- FontAwesome CDN -->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+<script>
+  // Navbar toggle
+const menuToggle = document.getElementById("menu-toggle");
+const navbar = document.getElementById("navbar");
+menuToggle.addEventListener("click", () => {
+  navbar.classList.toggle("active");
+  menuToggle.innerHTML = navbar.classList.contains("active")
+    ? '<i class="fas fa-times"></i>'
+    : '<i class="fas fa-bars"></i>';
+});
+
+// Hero slider (auto change every 5s)
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+function showSlide() {
+  slides.forEach((s, i) => s.classList.remove("active"));
+  slides[index].classList.add("active");
+  index = (index + 1) % slides.length;
+}
+setInterval(showSlide, 5000);
+
+// Modals (About Page)
+const modalBtns = document.querySelectorAll("button[data-modal]");
+const modals = document.querySelectorAll(".modal");
+const closeBtns = document.querySelectorAll(".close-btn");
+
+modalBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.getElementById(btn.dataset.modal).style.display = "flex";
+  });
+});
+
+closeBtns.forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.parentElement.parentElement.style.display = "none";
+  });
+});
+
+window.addEventListener("click", e => {
+  modals.forEach(modal => {
+    if (e.target === modal) modal.style.display = "none";
+  });
+});
+
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

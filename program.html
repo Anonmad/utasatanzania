@@ -1,0 +1,265 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Utasa Academy</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+  /* About Section */
+.about {padding:80px 20px; background:white; text-align:center;}
+.about h2 {font-size:32px; font-family:'Playfair Display',serif;}
+.line {width:80px; height:4px; background:#5ebd3e; margin:10px auto 20px; border-radius:2px;}
+.read-more-btn {
+  display:inline-block; margin-top:20px; padding:12px 28px;
+  background:#5ebd3e; color:white; border-radius:30px; font-weight:600;
+}
+.read-more-btn:hover {background:#3a7d42;}
+
+/* Sub Hero (About Page) */
+.sub-hero {
+  height:40vh; background:url("about-banner.jpg") center/cover no-repeat;
+  display:flex; justify-content:center; align-items:center; position:relative; color:white;
+}
+.sub-hero::after {content:""; position:absolute; inset:0; background:rgba(0,0,0,0.5);}
+.sub-hero h1 {font-size:50px; font-family:'Playfair Display',serif; z-index:2; position:relative;}
+
+/* About Page Content */
+.container {max-width:1200px; margin:60px auto; padding:0 20px;}
+.section-title {text-align:center; font-size:32px; font-family:'Playfair Display',serif; margin-bottom:10px;}
+.section-line {width:80px; height:4px; background:#5ebd3e; border-radius:3px; margin:0 auto 40px;}
+.grid {display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;}
+.card {background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.1); transition:.3s;}
+.card:hover {transform:translateY(-8px);}
+.card img {width:100%; height:200px; object-fit:cover;}
+.card-body {padding:20px;}
+.card-body h3 {font-size:22px; margin-bottom:10px; font-family:'Playfair Display',serif;}
+.card-body p {font-size:15px; color:#555; margin-bottom:15px;}
+.card-body button {
+  padding:10px 20px; background:#5ebd3e; color:white; border:none;
+  border-radius:20px; font-size:14px; cursor:pointer; transition:.3s;
+}
+.card-body button:hover {background:#3a7d42;}
+
+/* Modals */
+.modal {position:fixed; inset:0; background:rgba(0,0,0,0.7); display:none; justify-content:center; align-items:center; z-index:999;}
+.modal-content {background:white; max-width:700px; width:90%; padding:30px; border-radius:12px; position:relative; animation:fadeIn .4s;}
+.modal-content h2 {font-family:'Playfair Display',serif; margin-bottom:15px;}
+.modal-content p {color:#444; font-size:16px; margin-bottom:10px;}
+.close-btn {position:absolute; top:15px; right:20px; font-size:24px; cursor:pointer; color:#333;}
+@keyframes fadeIn {from{opacity:0; transform:scale(.9);} to{opacity:1; transform:scale(1);}}
+
+/* ===== FOOTER STYLING ===== */
+.footer {
+  background: #0a0a0a;
+  color: #f1f1f1;
+  padding: 60px 20px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+}
+
+.footer-col h4::after {
+  content: '';
+  width: 50px;
+  height: 2px;
+  background: #ff4757;
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin: 10px 0;
+}
+
+.footer-col ul li a {
+  color: #bbb;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+  color: #fff;
+  padding-left: 5px;
+}
+
+.footer-logo {
+  max-width: 120px;
+  margin-bottom: 15px;
+}
+
+.footer p {
+  font-size: 14px;
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 18px;
+  color: #bbb;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: #ff4757;
+  transform: translateY(-3px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 40px;
+  padding-top: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #777;
+}
+
+.footer-bottom a {
+  color: #ff4757;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media(max-width: 768px) {
+  .footer-container {
+    text-align: center;
+  }
+
+  .footer-col h4::after {
+    margin: auto;
+    left: 0;
+    right: 0;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Sub Hero -->
+  <div class="sub-hero">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80');"></div>
+    <h1>Programs</h1>
+  </div>
+
+  <!-- Main Content -->
+  <div class="container">
+    <h2 class="section-title">Our Story & Initiatives</h2>
+    <div class="section-line"></div>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="img/hero.jpg" alt="Our Mission">
+        <div class="card-body">
+          <h3></h3>
+          <p></p>
+          <button data-modal="modal1">Read More</button>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="img/mbili.jpg" alt="Education Support">
+        <div class="card-body">
+          <h3>Education Support</h3>
+          <p>Beyond football, we provide learning opportunities for children...</p>
+          <button data-modal="modal2">Read More</button>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="img/tatu.jpg" alt="Community Outreach">
+        <div class="card-body">
+          <h3>Community Outreach</h3>
+          <p>We run local programs that bring people together and inspire change...</p>
+          <button data-modal="modal3">Read More</button>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <img src="img/hero.jpg" alt="Training Programs">
+        <div class="card-body">
+          <h3>Training Programs</h3>
+          <p>Our coaching sessions combine fun, discipline and skills development...</p>
+          <button data-modal="modal4">Read More</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modals -->
+  <div class="modal" id="modal1">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Our Mission</h2>
+      <p>At United Of Africa Academy, our mission is to empower youth through football, education, and community. We focus on discipline, teamwork, and leadership skills, ensuring that young people grow not just as players but as future leaders.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal2">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Education Support</h2>
+      <p>We partner with schools and provide resources such as books, tutoring, and mentorship. Education is key to breaking cycles of poverty, and we combine sports with learning to unlock potential.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal3">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Community Outreach</h2>
+      <p>Our outreach programs bring communities together through tournaments, events, and workshops. We emphasize inclusion, gender equality, and social responsibility.</p>
+    </div>
+  </div>
+
+  <div class="modal" id="modal4">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Training Programs</h2>
+      <p>Our football training sessions combine fun with structured development. Children learn technical skills, fitness, and discipline while also building confidence and friendships.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Utasa Football Academy. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #d3d3d3, #8e44ad);
+    }
+
+    .container {
+      width: 900px;
+      max-width: 95%;
+      display: flex;
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    }
+
+    .signin, .signup {
+      flex: 1;
+      padding: 50px;
+      text-align: center;
+      position: relative;
+        color: #ff8a00;
+    }
+
+    .signin {
+      animation: slideInLeft 1s ease forwards;
+    }
+
+    .signup {
+      background: #5a2ca0;
+      color: #fff;
+      animation: slideInRight 1s ease forwards;
+    }
+
+    .signin h2, .signup h2 {
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin: 0 10px;
+      font-size: 18px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: #ff7700;
+      color: #fff;
+      border-color: #5a2ca0;
+    }
+
+    .signin form {
+      margin-top: 20px;
+    }
+
+    .signin input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .btn {
+      position: relative;
+      display: inline-block;
+      padding: 12px 30px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      overflow: hidden;
+      z-index: 1;
+      transition: color 0.3s ease;
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, #8e44ad, #5a2ca0, #442071);
+      transition: left 0.5s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::before {
+      left: 0;
+    }
+
+    .signin button {
+      width: 100%;
+      background: #5a2ca0;
+      color: #fff;
+    }
+
+    .signup button {
+      margin-top: 20px;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+    }
+
+    .signup button:hover {
+      color: #fff;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    .logo {
+        display: flex;
+    }
+        
+    .logo img {
+        height: 190px;
+        width: auto;
+        display: block;
+        margin: auto;
+        margin-top: 10%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sign In Section -->
+    <div class="signin">
+        <h2><a style="font-family: initial;">Sign In</a></h2>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-google"></i></a>
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p style="margin: 15px 0;">or use your email password</p>
+      <form>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <p style="font-size: 14px; margin: 10px 0; color: #666; cursor: pointer;">Forgot Your Password?</p>
+        <button type="submit" class="btn">SIGN IN</button>
+      </form>
+    </div>
+
+    <!-- Sign Up Section -->
+    <div class="signup">
+        <h2><a style="color: orange">Hello,</a> Friend!</h2>
+        <p><i>Register with your personal details to use all of site features</i></p>
+      <button class="btn">SIGN UP</button>
+        <div class="logo">
+            <img src="img/utasalogo.png" alt="index.html">
+        </div>
+    </div>
+  </div>
+</body>
+</html>
