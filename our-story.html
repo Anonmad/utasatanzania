@@ -18,6 +18,14 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
+
+.abouut-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
   </style>
 </head>
 <body>
@@ -156,12 +164,10 @@
       </p>
     </div>
   </div>
-  <div class="about-block reverse" data-animate="fade-left">
-    <div class="about-text">
+    <div class="about-text" style="text-align: center">
       <h2>Theory of change</h2>
-      <div class="abut-img"><img src="img/UTASATANZANIA_ToC_Flowing.png" alt="Mission"></div>
     </div>
-  </div>
+  <div class="abouut-img"><img src="img/UTASATANZANIA_ToC_Flowing.png" alt="#"></div>
 </section>
 
 <section class="timeline-section">
