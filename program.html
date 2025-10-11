@@ -11,6 +11,35 @@
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
+    /* Reset */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif; line-height:1.6; background:#f9f9f9; color:#333;}
+a {text-decoration:none;}
+    /* Navbar */
+header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 40px; background:#222; color:white; position:relative;
+}
+.logo img {height:120px; width:auto;}
+nav ul {list-style:none; display:flex; gap:0px;}
+nav ul li {position:relative;}
+nav ul li a {color:white; padding:8px 12px; display:block;}
+nav ul li a:hover {background:#5ebd3e; border-radius:5px;}
+/* Submenu */
+nav ul li ul.submenu {
+  display:none; position:absolute; top:100%; left:0; background:#333; min-width:150px;
+}
+nav ul li:hover ul.submenu {display:block;}
+nav ul li ul.submenu li a {padding:10px;}
+
+/* Mobile Menu */
+.menu-toggle {display:none; font-size:28px; cursor:pointer;}
+@media(max-width:768px){
+  nav {display:none; position:absolute; top:167px; right:0; background:#222; width:606px;}
+  nav ul {flex-direction:column;text-align: center;}
+  .menu-toggle {display:block; color:white;}
+  nav.active {display:block;z-index: 10;}
+}
   /* About Section */
 .about {padding:80px 20px; background:white; text-align:center;}
 .about h2 {font-size:32px; font-family:'Playfair Display',serif;}
@@ -167,7 +196,23 @@
   </style>
 </head>
 <body>
-
+<!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="img/utasalogo.png" alt="Utasa Logo">
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="our-story.html">Programs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
   <!-- Sub Hero -->
   <div class="sub-hero">
     <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80');"></div>
@@ -184,9 +229,8 @@
       <div class="card">
         <img src="img/hero.jpg" alt="Our Mission">
         <div class="card-body">
-          <h3></h3>
-          <p></p>
-          <button data-modal="modal1">Read More</button>
+          <h3>xxxxxxxxxx</h3>
+          <p>xxxxxxxxxxxxxxx</p>
         </div>
       </div>
 
@@ -195,8 +239,7 @@
         <img src="img/mbili.jpg" alt="Education Support">
         <div class="card-body">
           <h3>Education Support</h3>
-          <p>Beyond football, we provide learning opportunities for children...</p>
-          <button data-modal="modal2">Read More</button>
+          <p>Beyond football, we provide learning opportunities for children.</p>
         </div>
       </div>
 
@@ -205,8 +248,7 @@
         <img src="img/tatu.jpg" alt="Community Outreach">
         <div class="card-body">
           <h3>Community Outreach</h3>
-          <p>We run local programs that bring people together and inspire change...</p>
-          <button data-modal="modal3">Read More</button>
+          <p>We run local programs that bring people together and inspire change.</p>
         </div>
       </div>
 
@@ -215,50 +257,61 @@
         <img src="img/hero.jpg" alt="Training Programs">
         <div class="card-body">
           <h3>Training Programs</h3>
-          <p>Our coaching sessions combine fun, discipline and skills development...</p>
-          <button data-modal="modal4">Read More</button>
+          <p>Our coaching sessions combine fun, discipline and skills development.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Modals -->
-  <div class="modal" id="modal1">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h2>Our Mission</h2>
-      <p>At United Of Africa Academy, our mission is to empower youth through football, education, and community. We focus on discipline, teamwork, and leadership skills, ensuring that young people grow not just as players but as future leaders.</p>
-    </div>
-  </div>
-
-  <div class="modal" id="modal2">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h2>Education Support</h2>
-      <p>We partner with schools and provide resources such as books, tutoring, and mentorship. Education is key to breaking cycles of poverty, and we combine sports with learning to unlock potential.</p>
-    </div>
-  </div>
-
-  <div class="modal" id="modal3">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h2>Community Outreach</h2>
-      <p>Our outreach programs bring communities together through tournaments, events, and workshops. We emphasize inclusion, gender equality, and social responsibility.</p>
-    </div>
-  </div>
-
-  <div class="modal" id="modal4">
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h2>Training Programs</h2>
-      <p>Our football training sessions combine fun with structured development. Children learn technical skills, fitness, and discipline while also building confidence and friendships.</p>
-    </div>
-  </div>
-
   <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Utasa Football Academy. All rights reserved.</p>
-  </footer>
+  <footer class="footer">
+        <div class="footer-container">
+            <!-- Brand / Logo -->
+            <div class="footer-col brand">
+                <img src="img/utasalogo.png" alt="index.html" class="footer-logo">
+                <p><i>Creating Equal Opportunities, Changing Lives Through Sports.</i></p>
+            </div>
+            <!-- Quick Links -->
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="#">Matches</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="#">News</a></li>
+                </ul>
+            </div>
+            <!-- Resources -->
+            <div class="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="utasatanzania@gmail.com">Help Center</a></li>
+                </ul>
+            </div>
+            <!-- Social Media -->
+            <div class="footer-col">
+                <h4>Follow Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <!-- Bottom bar -->
+        <div class="footer-bottom">
+            <p><b>&copy; 2025 Utasatanzania.</b> <i>All Rights Reserved.</i></p>
+            <p>Designed by <a href="https://github.com/Anonmad/Anonmad.git">Anonmad_Tech.</a></p>
+        </div>
+    </footer>
+    <!-- FontAwesome CDN -->
+    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
 
   <script src="js/script.js"></script>
 </body>

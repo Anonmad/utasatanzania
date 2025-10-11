@@ -5,9 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us - Pro Page</title>
 <link rel="stylesheet" href="css/style.css">
+<!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 <style>
+  /* Reset */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family:'Poppins',sans-serif; line-height:1.6; background:#f9f9f9; color:#333;}
+a {text-decoration:none;}
+/* Navbar */
+header {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:20px 40px; background:#222; color:white; position:relative;
+}
+.logo img {height:120px; width:auto;}
+nav ul {list-style:none; display:flex; gap:0px;}
+nav ul li {position:relative;}
+nav ul li a {color:white; padding:8px 12px; display:block;}
+nav ul li a:hover {background:#5ebd3e; border-radius:5px;}
+/* Submenu */
+nav ul li ul.submenu {
+  display:none; position:absolute; top:100%; left:0; background:#333; min-width:150px;
+}
+nav ul li:hover ul.submenu {display:block;}
+nav ul li ul.submenu li a {padding:10px;}
+
+/* Mobile Menu */
+.menu-toggle {display:none; font-size:28px; cursor:pointer;}
+@media(max-width:768px){
+  nav {display:none; position:absolute; top:167px; right:0; background:#222; width:606px;}
+  nav ul {flex-direction:column;text-align: center;}
+  .menu-toggle {display:block; color:white;}
+  nav.active {display:block;z-index: 10;}
+}
   .testimoniali {
-            background: white;
+            background: #0ae01b;
             padding: 1rem;
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -29,29 +63,27 @@
   </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <img src="img/utasalogo.png" alt="index.html">
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav id="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="login.html">Registration</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header><br><br><br><br><br>
-<div class="about-head">
-  <h1><a style="font-family:'Playfair Display',serif;">Our Story</a></h1>
-  <button class="mode-toggle">🌙 Dark</button>
-</div>
+    <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="img/utasalogo.png" alt="Utasa Logo">
+    </div>
+    <nav id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="our-story.html">Programs</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="login.html">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  </header>
+    <div class="about-head">
+      <h1><a style="font-family:'Playfair Display',serif;">Our Story</a></h1>
+      <button class="mode-toggle">🌙 Dark</button>
+    </div>
 
 <section class="about-section">
   <div class="about-block" data-animate="fade-left">
@@ -68,7 +100,7 @@
         <div class="container">
           <div class="testimonial-gridi">
             <div class="testimoniali">
-              <p><i>“If it wasn’t for sport, I would have been a bad guy. Football saved me. It gave me a reason to
+              <p style="color: black"><i>“If it wasn’t for sport, I would have been a bad guy. Football saved me. It gave me a reason to
                 wake up, a way to fight the pressure, and a place to belong.”</i><b> Stevene Founder & Director</b></p>
             </div>
           </div>
@@ -97,7 +129,8 @@
             team to the Chipukizi Cup in Arusha, proving the academy was more than a dream.
           </p>
       </div>
-      <div class="about-text">
+    </div>
+    <div class="about-text">
           <h2>The Kigoma Challenge: Changing Minds, Building Trust</h2>
           <p style="font-family:'Playfair Display',serif;">
             Many families saw sport as a distraction, girls were discouraged, and resources were scarce. Stevene hosted
@@ -111,11 +144,12 @@
             Utasatanzania organizes community events, mentorship sessions, and outreach programs—it’s about winning
             hearts, not just matches.</p>
       </div>
+      <div class="about-img"><img src="img/utasalogo.png" alt="Story"></div>
       <!-- Testimonials Section -->
       <section>
         <div class="container">
           <div class="testimonial-gridi">
-            <div class="testimoniali">
+            <div class="testimoniali" style="color: black">
              <h2>The Founder’s Message</h2>
               <p><i>
                 “I may not have gone far in school, but I’ve learned through struggle, through sport, and
@@ -123,7 +157,7 @@
             </div>
           </div>
         </div>
-      </section><br><br>
+        </section><br><br>
       <div class="about-text">
           <h2>The Vision: Building Futures Across Tanzania</h2>
           <p style="font-family:'Playfair Display',serif;">
@@ -133,7 +167,6 @@
             <b>Goal:</b> <i>Unlock leaders, build futures, and change lives.</i>
           </p>
       </div>
-    </div>
   </div>
   <div class="about-block reverse" data-animate="fade-right">
     <div class="about-img"><img src="img/utasalogo.png" alt="Vision"></div>

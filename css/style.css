@@ -35,7 +35,7 @@
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 1000;
+            z-index: 10001;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
@@ -56,7 +56,33 @@
             width: auto;
             display: block;
         }
-        
+        /* FIX 1: Hakikisha hakuna overflow hidden */
+body {
+    overflow-x: hidden !important;
+}
+
+/* FIX 2: Weka parent container iwe relative */
+.navbar, header {
+    position: relative !important;
+    overflow: visible !important;
+}
+
+/* FIX 3: Force dropdown kuonekana */
+.dropdown-menu {
+    z-index: 9999 !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 0 !important;
+}
+
+/* FIX 4: Ondoa restrictions zote */
+* {
+    box-sizing: border-box;
+}
+
+.navbar * {
+    overflow: visible !important;
+}
 nav ul {
   display: flex;
   list-style: none;
@@ -298,6 +324,7 @@ header {
   .read-more-btn {
   display:inline-block; margin-top:20px; padding:12px 28px;
   background:#5ebd3e; color:white; border-radius:30px; font-weight:600;
+  position:
 }
 .read-more-btn:hover {background:#3a7d42;}
       /* ===== HERO SECTION ===== */
@@ -326,6 +353,7 @@ header {
 
         .slide.active {
             opacity: 1;
+            z-index: 1;
         }
 /* Overlay ya kivuli upande wa kushoto */
 .hero::before {
@@ -344,7 +372,7 @@ header {
   z-index: 2;
   max-width: 800px;
   margin-left: 31px;
-  top: 38%;
+  top: 31%;
 }
 
 /* Heading kuu */
@@ -855,7 +883,7 @@ header {
   body.dark .timeline-content{background:#1e1e1e;color:#ddd;}
   body.dark .about-footer{background:#222;}
 
-  .about-head{margin-top: 22px; background: url(https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80);color:#fff;text-align:center;padding:3rem 1rem;animation:fadeDown 1.5s ease forwards;position:relative;}
+  .about-head{background: url(https://images.unsplash.com/photo-1575361204480-aadea25e6e68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1771&q=80);color:#fff;text-align:center;padding:3rem 1rem;animation:fadeDown 1.5s ease forwards;position:relative;}
   .about-head h1{font-size:2.8rem;margin-bottom:0.5rem;text-align-last: left;}
   .mode-toggle{position:absolute;top:20px;right:20px;background:#fff;color:#0d6efd;border:none;padding:8px 14px;border-radius:30px;font-size:.9rem;cursor:pointer;transition:all .3s ease;font-weight:500;}
   .mode-toggle:hover{background:#0d6efd;color:#fff;transform:scale(1.05);}
