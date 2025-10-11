@@ -14,6 +14,176 @@
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
+    /* FIX ZA SIMU - KULALA KAMA DESKTOP */
+@media only screen and (max-width: 768px) {
+    body {
+        min-height: 100vh !important;
+        padding: 10px !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+        background: linear-gradient(135deg, #d3d3d3, #8e44ad) !important;
+        overflow-x: auto !important; /* Ruhusu scroll kwa upana */
+    }
+
+    .container {
+        width: 95% !important;
+        max-width: 95% !important;
+        min-width: 300px !important; /* Hakikisha haipiti chini */
+        flex-direction: row !important; /* WEKA HII MUHIMU - KULALA */
+        margin: 10px auto !important;
+        border-radius: 15px !important;
+        transform: scale(0.9) !important; /* Punguza kidogo kufaa */
+        transform-origin: center !important;
+        animation: mobileSlideIn 0.8s ease forwards !important;
+    }
+
+    .container:hover {
+        transform: scale(0.9) !important; /* Weka hover sawa kwa simu */
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .signin, .signup {
+        padding: 25px 15px !important;
+        flex: 1 !important;
+        min-height: 500px !important; /* Hakikisha urefu sawa */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .signin {
+        animation: slideInLeft 1s ease forwards !important;
+    }
+
+    .signup {
+        animation: slideInRight 1s ease forwards !important;
+    }
+
+    .signin h2, .signup h2 {
+        font-size: 22px !important;
+        margin-bottom: 15px !important;
+    }
+
+    .social-icons {
+        margin: 10px 0 !important;
+    }
+
+    .social-icons a {
+        margin: 0 6px !important;
+        padding: 8px !important;
+        font-size: 14px !important;
+    }
+
+    .signin input {
+        padding: 12px !important;
+        margin: 8px 0 !important;
+        font-size: 16px !important;
+    }
+
+    .btn {
+        padding: 12px 20px !important;
+        font-size: 14px !important;
+        width: 100% !important;
+    }
+
+    .logo img {
+        height: 100px !important;
+        margin-top: 20px !important;
+    }
+
+    p {
+        font-size: 13px !important;
+        margin: 8px 0 !important;
+    }
+}
+
+/* ANIMATION MPYA KWA SIMU */
+@keyframes mobileSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8) rotate(-5deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(0.9) rotate(0deg);
+    }
+}
+
+/* KWA SIMU NDOGO ZAIDI */
+@media only screen and (max-width: 480px) {
+    .container {
+        transform: scale(0.85) !important;
+        width: 98% !important;
+    }
+
+    .signin, .signup {
+        padding: 20px 12px !important;
+        min-height: 450px !important;
+    }
+
+    .signin h2, .signup h2 {
+        font-size: 20px !important;
+    }
+
+    .social-icons a {
+        margin: 0 4px !important;
+        padding: 7px !important;
+        font-size: 13px !important;
+    }
+
+    .signin input {
+        padding: 11px !important;
+        font-size: 15px !important;
+    }
+
+    .btn {
+        padding: 11px 18px !important;
+        font-size: 13px !important;
+    }
+
+    .logo img {
+        height: 80px !important;
+    }
+
+    p {
+        font-size: 12px !important;
+    }
+}
+
+/* KWA SIMU ZA LANDSCAPE (KULALA) */
+@media only screen and (max-width: 768px) and (orientation: landscape) {
+    body {
+        padding: 5px !important;
+    }
+    
+    .container {
+        transform: scale(0.8) !important;
+        max-height: 90vh !important;
+    }
+    
+    .signin, .signup {
+        min-height: 400px !important;
+        padding: 15px 10px !important;
+    }
+}
+
+/* HAKIKISHA INASAFIRI VIZURI KWA UPANA */
+@media only screen and (max-width: 320px) {
+    .container {
+        min-width: 280px !important;
+        transform: scale(0.8) !important;
+    }
+    
+    .signin, .signup {
+        padding: 15px 8px !important;
+    }
+    
+    .social-icons a {
+        margin: 0 2px !important;
+        padding: 6px !important;
+    }
+}
 
     body {
       display: flex;
